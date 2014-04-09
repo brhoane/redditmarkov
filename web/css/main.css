@@ -30,10 +30,135 @@ a:visited { color: #a0a; }
 
 /* Reddit-ish */
 .header {
-  background-color: #cee3f8;
-  border-bottom: 1px solid #5f99cf;
+  margin: 0;
+  padding: 0;
 }
 
-.header h1 {
-  padding: 10px 0 3px;
+.header .header-img {
+  background-image: url(http://static.reddit.com/reddit_programming.png);
+  color: red;
+  display: inline-block;
+  height: 35px;
+  padding: 5px 0 0 40px;
+  width: 80px;
+}
+
+.header .title {
+  background-color: #f0f0f0;
+  white-space: nowrap;
+  text-transform: uppercase;
+  border-bottom: 1px solid gray;
+  font-size: 90%;
+  height: 18px;
+  line-height: 18px;
+  font-weight: normal;
+  margin: 0;
+  padding: 1px 5px;
+}
+
+.header .title a {
+  color: black;
+}
+
+.header .top {
+  background-color: #cee3f8;
+  border-bottom: 1px solid #5f99cf;
+  padding: 10px 0 3px 5px;
+  font-weight: bold;
+}
+
+.header .top .subreddit-name {
+  vertical-align: bottom;
+}
+
+.posts { margin: 7px 5px 0px 5px; }
+
+.arrow {
+  margin: 2px 0px 0px 0px;
+  width: 100%;
+  height: 14px;
+  display: block;
+  cursor: pointer;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  outline: none;
+}
+
+.arrow.up {
+  background-image:
+    url(http://www.redditstatic.com/sprite-reddit.hV9obzo72Pc.png);
+  background-position: -63px -796px;
+  background-repeat: no-repeat;
+}
+
+.arrow.down {
+  background-image:
+    url(http://www.redditstatic.com/sprite-reddit.hV9obzo72Pc.png);
+  background-position: -21px -796px;
+  background-repeat: no-repeat;
+}
+
+.arrows {
+  float: left;
+  margin-right: 4px;
+  margin-left: 7px;
+  background: transparent;
+  overflow: hidden;
+}
+
+.arrows .score {
+  text-align: center;
+  color: #c6c6c6;
+}
+
+.post { min-height: 50px; }
+
+.post .rank {
+  float: left;
+  margin-top: 15px;
+  color: #c6c6c6;
+  font-family: arial;
+  font-size: medium;
+  text-align: right;
+}
+
+.post .link-title {
+  font-size: medium;
+  font-weight: normal;
+  margin-bottom: 1px;
+  color: blue;
+  outline: none;
+  margin-right: .4em;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.tagline {
+  color: #888;
+  font-size: x-small;
+  margin: 0;
+  padding: 0;
+}
+
+.comment-link {
+  color: #888;
+  font-weight: bold;
+  padding: 0 1px;
+}
+
+.comment-link:hover {
+  color: #888;
+  font-weight: bold;
+  padding: 0 1px;
+  text-decoration: underline;
+  margin: 0;
+}
+
+.footer .content {
+  color: #888;
+  font-size: small;
+  text-align: center;
 }
