@@ -68,7 +68,7 @@ def main():
     for i in range(1,len(sys.argv)):
         print sys.argv[i]
         titles = get_subreddit_titles(sys.argv[i], 10000)
-        with open(sys.argv[i] + ".txt", "w") as f:
+        with open("download/" + sys.argv[i] + ".txt", "w+") as f:
             for x in titles:
                 f.write(x[0].encode('utf8') + "\n")
                 f.write(str(x[1]))

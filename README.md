@@ -16,4 +16,13 @@ Generating Markov Models: markov.py
 -----------------------------------
 
 Usage:
-./rlist.py [file containing title data]
+./markov.py [file containing title data]
+
+Downloading with scripts:
+----------------------------------
+
+
+Usage:
+./download.sh [file]
+
+where the file is a newline separate list of subreddits. 

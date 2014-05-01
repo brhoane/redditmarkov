@@ -96,10 +96,10 @@ def read_title_data(path):
     return ret
 
 def main():
-    model = MarkovModel(read_title_data(sys.argv[1] + ".txt"), 3)
+    model = MarkovModel(read_title_data("download/" + sys.argv[1] + ".txt"), 3)
     list = [model.random_sentence() for i in range(0, 20)]
     data = {"title": sys.argv[1], "url" : sys.argv[1], "titles" : list, }
-    with open("data/" + sys.argv[1] + ".json", 'w') as outfile:
+    with open("data/" + sys.argv[1] + ".json", 'w+') as outfile:
         json.dump(data, outfile)
     print list
 
