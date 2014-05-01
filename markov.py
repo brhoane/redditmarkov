@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import sys
+import json
 from random import random
 
 def make_key(kgram):
@@ -95,17 +96,12 @@ def read_title_data(path):
     return ret
 
 def main():
-    model = MarkovModel(read_title_data(sys.argv[1]), 3)
-    print model.random_sentence()
-    print model.random_sentence()
-    print model.random_sentence()
-    print model.random_sentence()
-    print model.random_sentence()
-    print model.random_sentence()
-    print model.random_sentence()
-    print model.random_sentence()
-    print model.random_sentence()
-    print model.random_sentence()
+    model = MarkovModel(read_title_data(sys.argv[1] + ".txt"), 3)
+    list = [model.random_sentence() for i in range(0, 20)]
+    data = {"title": sys.argv[1], "url" : sys.argv[1], "titles" : list, }
+    with open("data/" + sys.argv[1] + ".json", 'w') as outfile:
+        json.dump(data, outfile)
+    print list
 
 
 if len(sys.argv) <= 1:

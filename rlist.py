@@ -66,6 +66,7 @@ def get_subreddit_titles(sr, n=10000):
 
 def main():
     for i in range(1,len(sys.argv)):
+        print sys.argv[i]
         titles = get_subreddit_titles(sys.argv[i], 10000)
         with open(sys.argv[i] + ".txt", "w") as f:
             for x in titles:
@@ -73,3 +74,7 @@ def main():
                 f.write(str(x[1]))
                 f.write("\n")
     
+if len(sys.argv) <= 1:
+    print "Usage: python rlist.py subreddit"
+else:
+    main()
