@@ -4,8 +4,7 @@ title: We /r/predictable
 ---
 
 <div class="content">
-  <p><a href="/?subreddit=aww">Aww</a></p>
-  <p><a href="/?subreddit=funny">Funny</a></p>
-  <p><a href="/?subreddit=programming">Programming</a></p>
-  <p><a href="/?subreddit=all">All</a></p>
+  {% for subreddit in site.subreddits %}
+    <p><a href="/?subreddit={{ subreddit }}">{{ subreddit }}</a></p>
+  {% endfor %}
 </div>

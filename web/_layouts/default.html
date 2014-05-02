@@ -15,11 +15,9 @@
     <div class="site">
       <div class="header">
         <p class="more">
-          <a href="/?subreddit=aww">Aww</a> -
-          <a href="/?subreddit=funny">Funny</a> -
-          <a href="/?subreddit=programming">Programming</a> -
-          <a href="/?subreddit=all">All</a>
-          |
+          {% for subreddit in site.subreddits limit:10 %}
+            <a href="/?subreddit={{ subreddit }}">{{ subreddit }}</a> -
+          {% endfor %}
           <a href="/list.html">more</a>
         </p>
         <h1 class="title"><a href="/">{{ site.name }}</a></h1>
