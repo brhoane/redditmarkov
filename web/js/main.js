@@ -1,4 +1,6 @@
 $(function () {
+  if (window.location.pathname == "/list.html") { return; }
+
   var $posts = $(".content .posts");
   var params = getSearchParameters();
   var subreddit = params.subreddit || "programming";

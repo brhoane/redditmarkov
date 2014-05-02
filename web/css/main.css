@@ -56,8 +56,18 @@ a:visited { color: #a0a; }
   padding: 1px 5px;
 }
 
-.header .title a {
+.header .more {
+  float: right;
+  margin: 0;
+  padding: 1px 5px;
+}
+
+.header a {
   color: black;
+}
+
+.header a:hover {
+  text-decoration: underline;
 }
 
 .header .top {
