@@ -8,7 +8,7 @@ def make_key(kgram):
 
 
 class MarkovModel:
-    
+
     def add_kgram(self, kgram, nextword):
         """Adds a kgram and the next word to the model's stats."""
         key = make_key(kgram)
@@ -37,7 +37,7 @@ class MarkovModel:
         """Adds all kgrams up to length maxk to the model's stats."""
         for i in range(1, self.maxk+1):
             self.add_kgrams(data, i)
-            
+
     def normalize(self):
         """Normalizes the histograms so that their frequencies sum to 1."""
         for key in self.stats:
@@ -56,7 +56,7 @@ class MarkovModel:
         self.add_stats(title_data)
         self.hist = dict()
         self.normalize()
-        
+
     def next_word(self, sentence):
         """Generates the next word in a random sentence."""
         slen = min(self.maxk, len(sentence))
@@ -83,7 +83,7 @@ class MarkovModel:
             sentence.append(nextword)
             nextword = self.next_word(sentence)
         return " ".join(sentence[1:])
-        
+
 
 def read_title_data(path):
     """Reads titles from a file and strips scores."""
@@ -96,12 +96,14 @@ def read_title_data(path):
     return ret
 
 def main():
-    model = MarkovModel(read_title_data("download/" + sys.argv[1] + ".txt"), 3)
-    list = [model.random_sentence() for i in range(0, 20)]
-    data = {"title": sys.argv[1], "url" : sys.argv[1], "titles" : list, }
-    with open("data/" + sys.argv[1] + ".json", 'w+') as outfile:
-        json.dump(data, outfile)
-    print list
+    for i in range(1,len(sys.argv)):
+        subreddit = sys.argv[i]
+        model = MarkovModel(read_title_data("download/" + subreddit + ".txt"), 1)
+        list = [model.random_sentence() for i in range(0, 20)]
+        data = {"title": subreddit, "url" : subreddit, "titles" : list, }
+        with open("data/" + subreddit + ".json", 'w+') as outfile:
+            json.dump(data, outfile)
+        print list
 
 
 if len(sys.argv) <= 1:
